@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sockscap下载 - SocksCap32代理穿透与网络工具使用指南</title>
+    <meta name="description" content="sockscap下载官方资源与详细使用教程。本文提供SocksCap32网络代理工具的下载指引、安装配置方法、与主流软件的兼容性说明以及常见网络连接问题的排查建议。">
+    <meta name="keywords" content="sockscap下载,SocksCap32,代理工具,SOCKS代理,网络穿透,代理软件">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-light: #64748b;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+            --accent-red: #ef4444;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .download-btn:hover {
+            background-color: var(--primary-dark);
+            color: white;
+        }
+
+        /* Hero 区域 */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            backdrop-filter: blur(4px);
+        }
+
+        /* 下载与核心功能区域 */
+        .section {
+            padding: 60px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 24px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* 下载引导 */
+        .download-guide {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+        }
+
+        .step-list {
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+
+        .step-item {
+            display: flex;
+            padding: 24px;
+            border-bottom: 1px solid var(--border-color);
+            align-items: flex-start;
+        }
+
+        .step-item:last-child {
+            border-bottom: none;
+        }
+
+        .step-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #e2e8f0;
+            line-height: 1;
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        .step-content h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .code-block {
+            background-color: #1e293b;
+            color: #e2e8f0;
+            padding: 16px;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+            margin-top: 12px;
+            overflow-x: auto;
+        }
+
+        /* 兼容性说明 */
+        .compatibility-section {
+            background-color: #f1f5f9;
+        }
+
+        .compat-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .compat-table th, .compat-table td {
+            padding: 16px 24px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .compat-table th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .compat-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-ok {
+            background-color: #dcfce7;
+            color: #166534;
+        }
+
+        .status-warn {
+            background-color: #fef9c3;
+            color: #854d0e;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            margin-bottom: 12px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background-color 0.2s;
+        }
+
+        .faq-question:hover {
+            background-color: #f8fafc;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            display: none;
+            border-top: 1px solid transparent;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+            padding-top: 16px;
+            border-top-color: var(--border-color);
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            width: 20px;
+            height: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 40px 0;
+            font-size: 0.9rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 16px;
+            font-size: 1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            margin-top: 32px;
+            padding-top: 24px;
+            border-top: 1px solid #334155;
+            text-align: center;
+        }
+
+        /* 响应式适配 */
+        @media (min-width: 768px) {
+            .step-item {
+                grid-template-columns: 80px 1fr;
+            }
+            .step-item:nth-child(even) {
+                background-color: #f8fafc;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .step-item:nth-child(even) {
+                background-color: transparent;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+                SocksCap32 指南
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#download">下载资源</a></li>
+                    <li><a href="#guide">安装配置</a></li>
+                    <li><a href="#compat">兼容性</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#download" class="download-btn">立即下载</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>sockscap下载与网络代理工具</h1>
+                <p>SocksCap32 是一款经典且强大的 SOCKS 代理穿透工具，能够将不支持代理协议的软件流量通过 SOCKS5/4 服务器进行转发，实现安全稳定的网络访问。</p>
+                <div class="hero-tags">
+                    <span class="tag">SOCKS5 代理</span>
+                    <span class="tag">流量转发</span>
+                    <span class="tag">防火墙穿透</span>
+                    <span class="tag">免配置</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 核心功能 -->
+        <section class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择 SocksCap32</h2>
+                    <p>专为解决应用程序代理支持不足而设计，提供简单高效的网络转发解决方案。</p>
+                </div>
+                <div class="features-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h3>安全加密传输</h3>
+                        <p>通过 SOCKS5 代理服务器建立连接，隐藏您的真实 IP 地址，增强网络隐私保护，防止数据被窥探。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                        </div>
+                        <h3>流量完美穿透</h3>
+                        <p>即使软件本身不设置代理，也能强制将其网络请求通过指定的 SOCKS 服务器进行转发，无需修改软件设置。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <h3>多软件兼容</h3>
+                        <p>完美支持各类 Windows 应用程序，包括浏览器、游戏客户端、聊天工具等，实现全局代理或局部代理。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 下载与安装指南 -->
+        <section id="download" class="section" style="background-color: white;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>sockscap下载与安装步骤</h2>
+                    <p>获取工具并正确配置，即可开始使用。请根据您的操作系统版本选择对应的安装包。</p>
+                </div>
+
+                <div class="download-guide">
+                    <div class="step-list">
+                        <div class="step-item">
+                            <span class="step-number">1</span>
+                            <div class="step-content">
+                                <h3>获取安装包</h3>
+                                <p>请从可信来源下载 SocksCap32 安装程序。文件通常为 .exe 格式。确保下载的版本与您的 Windows 系统兼容（推荐 Windows XP, 7, 10 及以上版本）。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">2</span>
+                            <div class="step-content">
+                                <h3>运行安装程序</h3>
+                                <p>双击下载的安装包，按照向导提示点击“下一步”。建议在安装时勾选“创建桌面快捷方式”以便快速启动。</p>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">3</span>
+                            <div class="step-content">
+                                <h3>配置代理服务器</h3>
+                                <p>启动 SocksCap32 后，进入设置界面。输入您的 SOCKS 代理服务器地址（IP 或域名）、端口号、认证用户名和密码。</p>
+                                <div class="code-block">
+                                    服务器地址: 127.0.0.1<br>
+                                    端口: 1080<br>
+                                    类型: SOCKS5
+                                </div>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-number">4</span>
+                            <div class="step-content">
+                                <h3>添加应用程序路径</h3>
+                                <p>在主界面点击“添加”或“浏览”，选择您想要通过代理运行的程序（例如 Chrome.exe 或 Steam.exe）。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 兼容性表格 -->
+        <section id="compat" class="section compatibility-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>软件兼容性列表</h2>
+                    <p>了解 SocksCap32 支持哪些应用程序，以及在不同系统环境下的表现。</p>
+                </div>
+                <div style="overflow-x: auto;">
+                    <table class="compat-table">
+                        <thead>
+                            <tr>
+                                <th>软件类型</th>
+                                <th>支持状态</th>
+                                <th>备注说明</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Google Chrome / Edge / Firefox</td>
+                                <td><span class="status-badge status-ok">完全支持</span></td>
+                                <td>通过代理访问网页内容，速度快，延迟低。</td>
+                            </tr>
+                            <tr>
+                                <td>Steam / Epic Games</td>
+                                <td><span class="status-badge status-ok">完全支持</span></td>
+                                <td>适合在需要代理环境下的游戏下载与登录。</td>
+                            </tr>
+                            <tr>
+                                <td>QQ / 微信 / Telegram</td>
+                                <td><span class="status-badge status-ok">完全支持</span></td>
+                                <td>聊天软件通常内置代理设置，使用 SocksCap 亦可强制转发。</td>
+                            </tr>
+                            <tr>
+                                <td>迅雷 / BitTorrent 下载工具</td>
+                                <td><span class="status-badge status-warn">部分支持</span></td>
+                                <td>旧版本支持较好，新版可能因加密协议导致连接不稳定。</td>
+                            </tr>
+                            <tr>
+                                <td>网络游戏 (魔兽世界等)</td>
+                                <td><span class="status-badge status-warn">需谨慎</span></td>
+                                <td>部分网游有反外挂机制，强制代理可能导致封号风险。</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                </div>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>sockscap下载后无法启动怎么办？</span>
+                            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>首先检查您的系统是否安装了必要的运行库（如 .NET Framework）。如果是 64 位系统，请确保下载的是 64 位版本的 SocksCap32，并关闭杀毒软件的实时监控后再试。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>SocksCap32 和 Proxifier 有什么区别？</span>
+                            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>SocksCap32 是较早期的工具，配置相对简单，适合轻量级代理穿透。Proxifier 功能更强大，支持更多协议（如 HTTP/HTTPS），并具备更高级的网络规则设置，适合复杂网络环境。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>如何测试代理是否生效？</span>
+                            <svg class="icon-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        </div>
+                        <div class="faq-answer">
+                            <p>启动 SocksCap32 并添加您的浏览器路径。在浏览器中访问“IP查询”网站，查看显示的 IP 地址是否为您设置的代理服务器 IP。如果是，则表示代理穿透成功。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>SocksCap32 指南</h4>
+                    <p>提供关于 SOCKS 代理工具的详细下载资源、安装教程及使用建议，帮助用户安全、高效地配置网络环境。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">SOCKS 协议详解</a></li>
+                        <li><a href="#">代理服务器搭建教程</a></li>
+                        <li><a href="#">网络安全防护指南</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 SocksCap32 使用指南. 保留所有权利. 本站内容仅供参考，请遵守当地法律法规。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 折叠交互
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                const isActive = faqItem.classList.contains('active');
+                
+                // 关闭所有其他打开的 FAQ
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    item.classList.remove('active');
+                });
+
+                // 切换当前 FAQ
+                if (!isActive) {
+                    faqItem.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
