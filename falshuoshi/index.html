@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>法律硕士法学硕士-备考指南与院校专业深度解析</title>
+    <meta name="description" content="本站提供法律硕士与法学硕士的全面对比分析、择校择专业指南、备考策略及复习资料，帮助考生精准定位研究方向，提升考研通过率。">
+    <meta name="keywords" content="法律硕士,法学硕士,考研择校,法律硕士vs法学硕士,考研资料">
+    <style>
+        :root {
+            --primary-color: #1a3c6e;
+            --secondary-color: #c8102e;
+            --accent-color: #f4a261;
+            --text-main: #333333;
+            --text-light: #666666;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-padding {
+            padding: 60px 0;
+        }
+
+        .text-center { text-align: center; }
+        
+        .section-title {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            color: var(--text-light);
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        .cta-btn {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 10px 24px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #a00d23;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2c5282 100%);
+            color: var(--white);
+            padding: 80px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .hero-tag {
+            background: rgba(255,255,255,0.15);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary-color);
+            padding: 14px 32px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+            padding: 12px 32px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--primary-color);
+        }
+
+        /* Comparison Section */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .compare-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .compare-card.law {
+            border-top-color: var(--primary-color);
+        }
+
+        .compare-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .compare-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: var(--white);
+        }
+
+        .law .compare-icon { background: var(--primary-color); }
+        .mlaw .compare-icon { background: var(--secondary-color); }
+
+        .compare-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .compare-list li {
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .compare-list li::before {
+            content: "•";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Core Differences */
+        .differences {
+            background-color: var(--bg-light);
+        }
+
+        .diff-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .diff-content h3 {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin-bottom: 20px;
+        }
+
+        .diff-content p {
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .diff-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .diff-table th, .diff-table td {
+            padding: 15px 20px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .diff-table th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .diff-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .diff-visual {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .visual-item {
+            display: flex;
+            margin-bottom: 20px;
+        }
+
+        .visual-label {
+            width: 100px;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .resource-card {
+            background: var(--white);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+
+        .res-icon {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .res-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .res-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .res-link {
+            color: var(--secondary-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .res-link::after {
+            content: "→";
+            margin-left: 5px;
+            transition: margin-left 0.2s;
+        }
+
+        .res-link:hover::after {
+            margin-left: 10px;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        details {
+            background: var(--white);
+            border: 1px solid #eee;
+            margin-bottom: 15px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        details[open] summary::after {
+            content: "-";
+        }
+
+        details[open] summary {
+            border-bottom: 1px solid #eee;
+            background-color: #fafafa;
+        }
+
+        .faq-content {
+            padding: 20px;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #111827;
+            color: #d1d5db;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #374151;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin: 15px 0;
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .diff-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .comparison-grid {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <div class="logo">法硕<span>指南</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#compare" class="active">核心区别</a></li>
+                    <li><a href="#differences">择校策略</a></li>
+                    <li><a href="#resources">备考资源</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+            <a href="#resources" class="cta-btn">获取资料</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>法律硕士 vs 法学硕士</h1>
+                <p>深度解析两种硕士类型的培养目标、报考门槛与职业发展路径，助你做出最适合自己的考研选择。</p>
+                <div class="hero-tags">
+                    <span class="hero-tag">专业学位</span>
+                    <span class="hero-tag">学术学位</span>
+                    <span class="hero-tag">就业导向</span>
+                    <span class="hero-tag">学术深造</span>
+                </div>
+                <div class="hero-actions">
+                    <a href="#compare" class="btn-primary">立即对比</a>
+                    <a href="#differences" class="btn-outline">查看择校指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Cards -->
+        <section id="compare" class="section-padding">
+            <div class="container">
+                <div class="comparison-grid">
+                    <!-- Law Master Card -->
+                    <article class="compare-card law">
+                        <div class="compare-header">
+                            <div class="compare-icon">🎓</div>
+                            <div class="compare-title">法学硕士</div>
+                        </div>
+                        <ul class="compare-list">
+                            <li><strong>学术型</strong>：侧重法学理论研究，培养学术人才。</li>
+                            <li><strong>本科背景</strong>：通常要求报考者本科为法学专业。</li>
+                            <li><strong>课程深度</strong>：课程设置更侧重理论前沿与学术研究方法。</li>
+                            <li><strong>就业方向</strong>：适合从事法学教学、科研、高级法律顾问工作。</li>
+                            <li><strong>学制学费</strong>：学制通常为3年，学费相对较低。</li>
+                        </ul>
+                    </article>
+
+                    <!-- Master of Law Card -->
+                    <article class="compare-card mlaw">
+                        <div class="compare-header">
+                            <div class="compare-icon">⚖️</div>
+                            <div class="compare-title">法律硕士</div>
+                        </div>
+                        <ul class="compare-list">
+                            <li><strong>专业型</strong>：侧重法律实务应用，培养应用型人才。</li>
+                            <li><strong>本科背景</strong>：<strong>不限专业</strong>，欢迎非法学本科生报考。</li>
+                            <li><strong>课程深度</strong>：课程设置包含大量模拟法庭、实务案例分析。</li>
+                            <li><strong>就业方向</strong>：适合进入法院、检察院、律所、公司法务等实务部门。</li>
+                            <li><strong>学制学费</strong>：学制通常为2-3年，学费相对较高。</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Detailed Differences Table -->
+        <section id="differences" class="section-padding differences">
+            <div class="container">
+                <div class="diff-grid">
+                    <div class="diff-content">
+                        <h3>如何根据自身情况选择？</h3>
+                        <p>选择法律硕士还是法学硕士，关键在于你的本科专业背景以及未来的职业规划。</p>
+                        <p><strong>如果你是非法学本科生：</strong> 法律硕士（JM）是唯一的选择。它专门为跨专业考生设计，旨在弥补法律知识短板，培养实战能力。</p>
+                        <p><strong>如果你是法学本科生：</strong> 两者皆可。选择法学硕士（JM）通常意味着更纯粹的学术研究深造；选择法律硕士则能接触更多元的专业背景同学，增强实务视角。</p>
+                        
+                        <table class="diff-table">
+                            <thead>
+                                <tr>
+                                    <th>对比维度</th>
+                                    <th>法学硕士</th>
+                                    <th>法律硕士</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>学位类型</td>
+                                    <td>学术型硕士</td>
+                                    <td>专业型硕士</td>
+                                </tr>
+                                <tr>
+                                    <td>培养目标</td>
+                                    <td>教学、科研</td>
+                                    <td>实务、应用</td>
+                                </tr>
+                                <tr>
+                                    <td>报考限制</td>
+                                    <td>仅限法学本科</td>
+                                    <td>不限专业</td>
+                                </tr>
+                                <tr>
+                                    <td>专业课考察</td>
+                                    <td>深度理论</td>
+                                    <td>广度实务</td>
+                                </tr>
+                                <tr>
+                                    <td>导师制度</td>
+                                    <td>单导师制</td>
+                                    <td>双导师制</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="diff-visual">
+                        <div class="visual-item">
+                            <span class="visual-label">职业路径</span>
+                            <span>法学硕士 → 高校教师/法学研究员</span>
+                        </div>
+                        <div class="visual-item">
+                            <span class="visual-label">职业路径</span>
+                            <span>法律硕士 → 公检法/律师/法务</span>
+                        </div>
+                        <div class="visual-item">
+                            <span class="visual-label">核心优势</span>
+                            <span>法学硕士：理论深度，学术造诣</span>
+                        </div>
+                        <div class="visual-item">
+                            <span class="visual-label">核心优势</span>
+                            <span>法律硕士：实务经验，跨学科视野</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="section-padding">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">备考与择校资源</h2>
+                    <p class="section-subtitle">系统化的备考规划与院校信息查询</p>
+                </div>
+                
+                <div class="resources-grid">
+                    <article class="resource-card">
+                        <span class="res-icon">📚</span>
+                        <h3 class="res-title">择校评估表</h3>
+                        <p class="res-desc">包含985/211院校法律硕士分数线、报录比及复试难度分析，帮助精准定位目标院校。</p>
+                        <a href="#" class="res-link">查看院校名单</a>
+                    </article>
+
+                    <article class="resource-card">
+                        <span class="res-icon">📝</span>
+                        <h3 class="res-title">历年真题库</h3>
+                        <p class="res-desc">整理近十年法律硕士（非法学/法学）联考及自命题院校真题，附详细解析。</p>
+                        <a href="#" class="res-link">下载真题资料</a>
+                    </article>
+
+                    <article class="resource-card">
+                        <span class="res-icon">💡</span>
+                        <h3 class="res-title">复习时间表</h3>
+                        <p class="res-desc">从基础阶段到冲刺阶段，分科目的详细复习进度规划与重点提示。</p>
+                        <a href="#" class="res-link">获取时间表</a>
+                    </article>
+
+                    <article class="resource-card">
+                        <span class="res-icon">🎧</span>
+                        <h3 class="res-title">名师课程</h3>
+                        <p class="res-desc">精选刑法、民法、法理等核心科目的优质网课片段，助你快速入门。</p>
+                        <a href="#" class="res-link">试听课程</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding differences">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-title">常见问题解答</h2>
+                    <p class="section-subtitle">关于法律硕士与法学硕士的疑难杂症</p>
+                </div>
+
+                <div class="faq-container">
+                    <details>
+                        <summary>法律硕士和法学硕士毕业后，考公务员有什么区别？</summary>
+                        <div class="faq-content">
+                            <p>在公务员招录中，两者的岗位选择几乎没有区别。无论是“法学硕士”还是“法律硕士”，在报考法院、检察院、司法局等岗位时，学历要求通常都是“硕士研究生”。主要区别在于学制长短（法学硕士通常3年，法律硕士通常2-3年），学制越长，实习时间可能越充裕，对实务经验的积累有帮助。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>法律硕士（JM）可以考博吗？</summary>
+                        <div class="faq-content">
+                            <p>可以。法律硕士属于专业学位，毕业后同样具备攻读博士学位的资格。不过，部分顶尖高校的法学博士（学博）项目在招生时，可能更倾向于接收法学硕士（学硕）出身的学生，因为其理论基础相对更扎实。法律硕士考博时，通常需要展示自己在实务领域的成果或较强的研究能力来弥补理论背景的不足。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>非全日制法律硕士含金量高吗？</summary>
+                        <div class="faq-content">
+                            <p>随着国家对专业学位硕士教育的重视，非全日制法律硕士的含金量在不断提升。对于在职人员而言，非全日制法律硕士是提升学历、拓展人脉、获取法律职业资格的重要途径。在考公和大型企业招聘中，非全日制硕士的认可度通常参照全日制标准执行，但具体仍需参照各单位的招聘公告要求。</p>
+                        </div>
+                    </details>
+
+                    <details>
+                        <summary>法律硕士（非法学）和法学硕士，哪个就业薪资更高？</summary>
+                        <div class="faq-content">
+                            <p>薪资水平受多种因素影响，包括所在城市、律所规模、个人能力等，而不仅仅是学历类型。法学硕士（学硕）往往进入高校或研究机构，起薪相对固定；法律硕士（非法学）毕业生大量涌入律所和企业法务部，起薪上限可能更高，但竞争也更为激烈。总体而言，两者在高端就业市场上薪资差距不大。</p>
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h2>法硕指南</h2>
+                    <p>专注法律硕士与法学硕士的考研资讯、择校策略与备考资料分享，致力于为每一位法律学子提供专业支持。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#compare">核心区别</a></li>
+                        <li><a href="#differences">择校指南</a></li>
+                        <li><a href="#resources">备考资料</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>考试类别</h4>
+                    <ul>
+                        <li><a href="#">法律硕士（非法学）</a></li>
+                        <li><a href="#">法律硕士（法学）</a></li>
+                        <li><a href="#">法学硕士（学硕）</a></li>
+                        <li><a href="#">法考资料</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系我们</h4>
+                    <ul>
+                        <li>邮箱：support@example.com</li>
+                        <li>微信：fashuo_guide</li>
+                        <li>地址：北京市海淀区法源路4号</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 法硕指南. All Rights Reserved. 本网站内容仅供参考，不构成任何投资或法律建议。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+</html>
