@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="永兴岛地图 - 提供中国西沙群岛永兴岛详细地形图、卫星地图、交通路线及驻岛设施分布指南。包含地理概况、游览攻略及实用导航信息。">
+    <meta name="keywords" content="永兴岛地图,西沙群岛地图,永兴岛旅游,永兴岛地形图,南海地图">
+    <title>永兴岛地图 - 西沙群岛地形交通与驻岛设施分布指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #005f6b;
+            --secondary-color: #008ba3;
+            --accent-color: #ff9f1c;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .search-bar {
+            background: var(--white);
+            padding: 0.5rem;
+            border-radius: 50px;
+            display: inline-flex;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .search-bar input {
+            border: none;
+            flex: 1;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-bar button {
+            background-color: var(--accent-color);
+            border: none;
+            color: var(--white);
+            padding: 0 2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #e08e15;
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Map Section */
+        .map-section {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .map-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .map-header h2 {
+            font-size: 1.25rem;
+        }
+
+        .map-controls {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .map-btn {
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #ddd;
+            background: var(--white);
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+
+        .map-btn:hover, .map-btn.active {
+            background: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        .map-visual {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-color: #eef2f3;
+            background-image: 
+                linear-gradient(#e0e0e0 1px, transparent 1px),
+                linear-gradient(90deg, #e0e0e0 1px, transparent 1px);
+            background-size: 20px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .map-placeholder {
+            text-align: center;
+            color: var(--text-light);
+        }
+
+        .map-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 1rem;
+            fill: #ccc;
+        }
+
+        .island-shape {
+            width: 300px;
+            height: 200px;
+            background-color: var(--secondary-color);
+            border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%;
+            position: relative;
+            box-shadow: inset -10px -10px 30px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.5rem;
+            border: 4px solid rgba(255,255,255,0.3);
+        }
+
+        .island-shape::after {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 50px;
+            width: 60px;
+            height: 40px;
+            background-color: #81d4fa;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .location-pin {
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            background-color: var(--accent-color);
+            border: 3px solid var(--white);
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .location-pin:hover {
+            transform: rotate(-45deg) scale(1.2);
+            z-index: 10;
+        }
+
+        .location-pin::after {
+            content: '';
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--white);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .pin-1 { top: 40%; left: 45%; }
+        .pin-2 { top: 30%; left: 70%; }
+        .pin-3 { top: 60%; left: 60%; }
+
+        /* Info Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .info-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 0.8rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .stat-item h4 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .stat-item p {
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .feature-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .feature-list li::before {
+            content: '✔';
+            color: var(--secondary-color);
+        }
+
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Navigation Grid */
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1rem;
+        }
+
+        .nav-item {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            text-align: center;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .nav-item:hover {
+            border-color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .nav-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .nav-item span {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        /* Section Styling */
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+        }
+
+        .section-header a {
+            color: var(--secondary-color);
+            font-size: 0.9rem;
+        }
+
+        /* Grid Layouts */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-img {
+            height: 160px;
+            background-color: #ddd;
+            position: relative;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-tag {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.7);
+            color: var(--white);
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            flex: 1;
+        }
+
+        .card-meta {
+            font-size: 0.8rem;
+            color: #999;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 3rem 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #34495e;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                display: none; /* Simplify for mobile */
+            }
+
+            .map-visual {
+                height: 350px;
+            }
+
+            .island-shape {
+                width: 200px;
+                height: 140px;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <div class="logo">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+            <span>南海地理</span>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">永兴岛地图</a></li>
+                <li><a href="#">西沙群岛</a></li>
+                <li><a href="#">南沙群岛</a></li>
+                <li><a href="#">地形图下载</a></li>
+                <li><a href="#">驻岛设施</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="hero">
+    <h1>永兴岛地图</h1>
+    <p>探索西沙群岛核心岛屿——永兴岛的详细地形、交通路线与驻岛设施分布。为您提供专业的地图导航与地理信息指南。</p>
+    <div class="search-bar">
+        <input type="text" placeholder="搜索地图图层、设施或景点...">
+        <button>搜索</button>
+    </div>
+</div>
+
+<main class="container">
+    <!-- Main Map Area -->
+    <section class="map-section">
+        <div class="map-header">
+            <h2>永兴岛交互地图</h2>
+            <div class="map-controls">
+                <button class="map-btn active">卫星视图</button>
+                <button class="map-btn">地形图</button>
+                <button class="map-btn">交通路网</button>
+            </div>
+        </div>
+        <div class="map-visual">
+            <!-- Visual representation of the island map -->
+            <div class="island-shape" title="永兴岛">
+                永兴岛
+            </div>
+            <!-- Interactive Pins -->
+            <div class="location-pin pin-1" title="政府驻地"></div>
+            <div class="location-pin pin-2" title="机场跑道"></div>
+            <div class="location-pin pin-3" title="港口码头"></div>
+        </div>
+        <div style="padding: 1.5rem; background: #f9f9f9; font-size: 0.9rem; color: #666;">
+            <p><strong>操作提示：</strong> 拖动地图查看周边海域，点击标记查看具体设施详情。当前显示比例为 1:5000。</p>
+        </div>
+    </section>
+
+    <!-- Sidebar Info -->
+    <aside>
+        <div class="info-card">
+            <h3>岛屿概况</h3>
+            <div class="stat-grid">
+                <div class="stat-item">
+                    <h4>面积</h4>
+                    <p>2.10 km²</p>
+                </div>
+                <div class="stat-item">
+                    <h4>最高点</h4>
+                    <p>海拔 5.3m</p>
+                </div>
+                <div class="stat-item">
+                    <h4>人口</h4>
+                    <p>约 2000人</p>
+                </div>
+                <div class="stat-item">
+                    <h4>坐标</h4>
+                    <p>16°50'N</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <h3>主要设施</h3>
+            <ul class="feature-list">
+                <li><strong>政府驻地</strong>：西沙群岛工委、管委会</li>
+                <li><strong>基础设施</strong>：机场、码头、发电站</li>
+                <li><strong>公共服务</strong>：学校、医院、邮局</li>
+                <li><strong>旅游景点</strong>>：西沙海洋博物馆</li>
+            </ul>
+        </div>
+
+        <div class="info-card">
+            <h3>快速导航</h3>
+            <div class="nav-grid">
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">🛫</span>
+                    <span>交通指南</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">🏨</span>
+                    <span>住宿信息</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">🚢</span>
+                    <span>船期查询</span>
+                </a>
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">📷</span>
+                    <span>航拍图集</span>
+                </a>
+            </div>
+        </div>
+    </aside>
+</main>
+
+<!-- Featured Content -->
+<section class="container">
+    <div class="section-header">
+        <h2>永兴岛相关资源</h2>
+        <a href="#">查看更多 &rarr;</a>
+    </div>
+    
+    <div class="card-grid">
+        <article class="card">
+            <div class="card-img">
+                <span class="card-tag">地形</span>
+                <img src="https://picsum.photos/seed/westernisland1/400/250" alt="永兴岛地形地貌">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">永兴岛地形地貌特征</h3>
+                <p class="card-desc">永兴岛由珊瑚礁构成，地势平坦，土壤肥沃，是西沙群岛中面积最大、植被最茂密的岛屿。</p>
+                <div class="card-meta">
+                    <span>更新于 2023-10</span>
+                    <span>阅读 1.2k</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-img">
+                <span class="card-tag">交通</span>
+                <img src="https://picsum.photos/seed/westernisland2/400/250" alt="永兴岛码头">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">前往永兴岛的交通方式</h3>
+                <p class="card-desc">详细介绍从三亚凤凰机场出发，乘坐海运前往永兴岛的航线、船期及登岛流程。</p>
+                <div class="card-meta">
+                    <span>更新于 2023-09</span>
+                    <span>阅读 3.5k</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-img">
+                <span class="card-tag">攻略</span>
+                <img src="https://picsum.photos/seed/westernisland3/400/250" alt="永兴岛旅游">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">永兴岛旅游全攻略</h3>
+                <p class="card-desc">包含最佳游览时间、当地美食推荐、防暑防晒注意事项及必备物资清单。</p>
+                <div class="card-meta">
+                    <span>更新于 2023-11</span>
+                    <span>阅读 5.1k</span>
+                </div>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-img">
+                <span class="card-tag">地图</span>
+                <img src="https://picsum.photos/seed/westernisland4/400/250" alt="西沙群岛分布">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">西沙群岛卫星地图集</h3>
+                <p class="card-desc">汇集了西沙群岛主要岛屿的高清卫星地图与详细标注，帮助您直观了解群岛分布。</p>
+                <div class="card-meta">
+                    <span>更新于 2023-08</span>
+                    <span>阅读 2.8k</span>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<section class="container">
+    <div class="section-header">
+        <h2>常见问题 (FAQ)</h2>
+    </div>
+    <div style="background: var(--white); padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+        <details style="margin-bottom: 1rem; cursor: pointer;">
+            <summary style="font-weight: 600; padding: 0.5rem 0;">哪里可以下载高清永兴岛地图？</summary>
+            <p style="padding: 0.5rem 0 1rem 0; color: var(--text-light);">您可以在本站“资源下载”栏目获取矢量地图和卫星影像图，支持打印和离线使用。</p>
+        </details>
+        <details style="margin-bottom: 1rem; cursor: pointer;">
+            <summary style="font-weight: 600; padding: 0.5rem 0;">永兴岛上有导航信号吗？</summary>
+            <p style="padding: 0.5rem 0 1rem 0; color: var(--text-light);">岛上部分区域有移动信号，但信号覆盖不稳定。建议出行前下载离线地图，并配备手持GPS设备。</p>
+        </details>
+        <details style="margin-bottom: 1rem; cursor: pointer;">
+            <summary style="font-weight: 600; padding: 0.5rem 0;">如何从地图上查看驻岛设施位置？</summary>
+            <p style="padding: 0.5rem 0 1rem 0; color: var(--text-light);">点击地图上的橙色标记点，即可弹窗显示该设施的具体名称、功能及联系电话。</p>
+        </details>
+    </div>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>南海地理</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">致力于提供最准确、最详尽的南海岛屿地理信息与地图服务，帮助公众了解南海地理环境。</p>
+        </div>
+        <div class="footer-col">
+            <h4>快速链接</h4>
+            <ul>
+                <li><a href="#">西沙群岛地图</a></li>
+                <li><a href="#">南沙群岛地图</a></li>
+                <li><a href="#">三沙市介绍</a></li>
+                <li><a href="#">海洋资源</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>实用工具</h4>
+            <ul>
+                <li><a href="#">在线地图浏览</a></li>
+                <li><a href="#">离线地图下载</a></li>
+                <li><a href="#">坐标转换工具</a></li>
+                <li><a href="#">航迹记录</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 南海地理信息服务平台. All Rights Reserved. 仅供地理科普与导航参考。
+    </div>
+</footer>
+
+</body>
+      </html>
