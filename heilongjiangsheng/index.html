@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>黑龙江省商务厅-政务公开与对外经贸服务平台</title>
+    <meta name="description" content="黑龙江省商务厅官方网站，提供商务政策法规、对外贸易管理、招商引资、内贸流通、电子商务及服务贸易等政务服务信息。">
+    <meta name="keywords" content="黑龙江省商务厅,黑龙江商务,对外贸易,招商引资,电子商务,内贸流通,服务贸易">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #e63946;
+            --bg-light: #f8f9fa;
+            --text-dark: #212529;
+            --text-gray: #6c757d;
+            --border-color: #dee2e6;
+            --white: #ffffff;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Microsoft YaHei", "Heiti SC", sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title span {
+            color: var(--primary-color);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text h1 {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .logo-text p {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        .header-search {
+            display: none;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 25px;
+        }
+
+        .header-nav a {
+            font-weight: 500;
+            font-size: 15px;
+            color: var(--text-dark);
+        }
+
+        .header-nav a:hover, .header-nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0056b3 0%, #0088cc 100%);
+            color: var(--white);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .hero h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item h3 {
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Main Layout */
+        .main-content {
+            flex: 1;
+            padding: 40px 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            gap: 30px;
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .link-item {
+            text-align: center;
+            padding: 15px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .link-item:hover {
+            border-color: var(--primary-color);
+            background-color: #f0f7ff;
+        }
+
+        .link-icon {
+            font-size: 24px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .link-text {
+            font-size: 13px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* News List */
+        .news-card {
+            background: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            margin-bottom: 20px;
+            overflow: hidden;
+        }
+
+        .news-header {
+            background-color: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-list {
+            padding: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f1f1;
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-title {
+            flex: 1;
+            font-size: 15px;
+            color: var(--text-dark);
+            margin-right: 15px;
+            line-height: 1.5;
+        }
+
+        .news-title:hover {
+            color: var(--primary-color);
+        }
+
+        .news-date {
+            font-size: 13px;
+            color: var(--text-gray);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Policy & Regulation */
+        .policy-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .policy-list {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+        }
+
+        .policy-item {
+            margin-bottom: 20px;
+        }
+
+        .policy-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .policy-meta {
+            font-size: 12px;
+            color: var(--text-gray);
+        }
+
+        /* Business Data */
+        .data-section {
+            margin-top: 30px;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            text-align: center;
+        }
+
+        .data-box {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+
+        .data-value {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .data-label {
+            font-size: 13px;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #d1d1d1;
+            padding: 50px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-info p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .footer-links h4 {
+            color: var(--white);
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            font-size: 14px;
+            color: #a0a0a0;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .link-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-nav {
+                display: none;
+                position: absolute;
+                top: var(--header-height);
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            }
+
+            .header-nav.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h2 {
+                font-size: 28px;
+            }
+
+            .hero-stats {
+                gap: 20px;
+            }
+
+            .data-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <div class="logo">
+                <div class="logo-icon">黑</div>
+                <div class="logo-text">
+                    <h1>黑龙江省商务厅</h1>
+                    <p>黑龙江省商务厅门户网站</p>
+                </div>
+            </div>
+            
+            <div class="mobile-menu-btn" onclick="toggleMenu()">☰</div>
+
+            <nav class="header-nav" id="mainNav">
+                <a href="#" class="active">首页</a>
+                <a href="#">政务公开</a>
+                <a href="#">政策法规</a>
+                <a href="#">商务动态</a>
+                <a href="#">专题专栏</a>
+                <a href="#">办事服务</a>
+                <a href="#">互动交流</a>
+                <a href="#">统计信息</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h2>服务龙江振兴发展 推动高水平对外开放</h2>
+            <p>黑龙江省商务厅致力于优化营商环境，促进对外贸易、利用外资、内贸流通和电子商务发展，构建全方位开放新格局。</p>
+            <div class="hero-btns">
+                <a href="#" class="btn" style="background: white; color: var(--primary-color);">政务服务大厅</a>
+                <a href="#" class="btn" style="background: transparent; color: white; border: 1px solid white; margin-left: 10px;">政策解读</a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <h3>2023</h3>
+                    <p>外贸进出口总额</p>
+                </div>
+                <div class="stat-item">
+                    <h3>120+</h3>
+                    <p>驻外经贸代表处</p>
+                </div>
+                <div class="stat-item">
+                    <h3>15%</h3>
+                    <p>跨境电商增速</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container grid-layout">
+            
+            <!-- Left Column -->
+            <div class="left-col">
+                
+                <!-- Quick Links -->
+                <div class="quick-links">
+                    <div class="section-title">常用服务入口</div>
+                    <div class="link-grid">
+                        <div class="link-item">
+                            <span class="link-icon">🛂</span>
+                            <span class="link-text">行政审批</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">📊</span>
+                            <span class="link-text">统计月报</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">🛍️</span>
+                            <span class="link-text">展会信息</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">🚢</span>
+                            <span class="link-text">口岸通关</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">💰</span>
+                            <span class="link-text">外资指南</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">📦</span>
+                            <span class="link-text">跨境电商</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">🏛️</span>
+                            <span class="link-text">信用公示</span>
+                        </div>
+                        <div class="link-item">
+                            <span class="link-icon">🔔</span>
+                            <span class="link-text">商务提醒</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- News List -->
+                <div class="news-card" style="margin-top: 30px;">
+                    <div class="news-header">
+                        <span>商务动态</span>
+                        <a href="#" style="font-size: 13px; color: var(--primary-color);">更多 &gt;</a>
+                    </div>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <a href="#" class="news-title">省政府召开全省商务工作会议 部署2024年重点工作任务</a>
+                            <span class="news-date">2024-03-15</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">省商务厅组织参加中国（哈尔滨）国际生态博览会</a>
+                            <span class="news-date">2024-03-14</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">黑龙江省出台新政策支持跨境电子商务综合试验区建设</a>
+                            <span class="news-date">2024-03-12</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">我省对俄罗斯贸易额创历史新高 外贸结构持续优化</a>
+                            <span class="news-date">2024-03-10</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">省商务厅与阿里巴巴签署战略合作协议 共推数字商务发展</a>
+                            <span class="news-date">2024-03-08</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Policy Section -->
+                <div class="policy-section">
+                    <div class="section-title">政策法规</div>
+                    <div class="policy-list">
+                        <div class="policy-item">
+                            <a href="#" class="policy-title">黑龙江省关于进一步促进外贸保稳提质的若干措施</a>
+                            <span class="policy-meta">发布时间：2024-02-28 | 文号：黑政办规〔2024〕5号</span>
+                        </div>
+                        <div class="policy-item">
+                            <a href="#" class="policy-title">黑龙江省外商投资准入特别管理措施（负面清单）</a>
+                            <span class="policy-meta">发布时间：2024-01-15 | 实施日期：2024-02-01</span>
+                        </div>
+                        <div class="policy-item">
+                            <a href="#" class="policy-title">黑龙江省推动“数字商务”高质量发展实施方案</a>
+                            <span class="policy-meta">发布时间：2023-12-20 | 文号：黑商规发〔2023〕10号</span>
+                        </div>
+                        <div class="policy-item">
+                            <a href="#" class="policy-title">黑龙江省电子商务进农村综合示范县管理办法</a>
+                            <span class="policy-meta">发布时间：2023-11-05</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Section -->
+                <div class="data-section">
+                    <div class="section-title">商务运行数据</div>
+                    <div class="data-grid">
+                        <div class="data-box">
+                            <div class="data-value">8,450.2</div>
+                            <div class="data-label">进出口总额（亿元）</div>
+                        </div>
+                        <div class="data-box">
+                            <div class="data-value">124.5</div>
+                            <div class="data-label">实际利用外资（亿美元）</div>
+                        </div>
+                        <div class="data-box">
+                            <div class="data-value">1,890</div>
+                            <div class="data-label">社会消费品零售总额（亿元）</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column -->
+            <aside class="right-col">
+                
+                <!-- Focus Topics -->
+                <div class="news-card">
+                    <div class="news-header">
+                        <span>专题专栏</span>
+                    </div>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <a href="#" class="news-title">第35届哈洽会</a>
+                            <span class="news-date">进行中</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">服务贸易创新发展试点</a>
+                            <span class="news-date">2024</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">振兴东北老工业基地</a>
+                            <span class="news-date">长期</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">RCEP经贸合作</a>
+                            <span class="news-date">2024</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title">哈尔滨亚冬会服务保障</a>
+                            <span class="news-date">筹备中</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="news-card" style="margin-top: 30px;">
+                    <div class="news-header">
+                        <span>联系我们</span>
+                    </div>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <span class="news-title">地址：</span>
+                            <span class="news-date" style="text-align: right;">哈尔滨市南岗区中山路243号</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">邮编：</span>
+                            <span class="news-date" style="text-align: right;">150001</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">电话：</span>
+                            <span class="news-date" style="text-align: right;">0451-82660114</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">传真：</span>
+                            <span class="news-date" style="text-align: right;">0451-82660115</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-title">邮箱：</span>
+                            <span class="news-date" style="text-align: right;">hljswt@hljswt.gov.cn</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notice -->
+                <div class="news-card" style="margin-top: 30px;">
+                    <div class="news-header">
+                        <span>通知公告</span>
+                        <a href="#" style="font-size: 13px; color: var(--primary-color);">更多 &gt;</a>
+                    </div>
+                    <div class="news-list">
+                        <div class="news-item">
+                            <a href="#" class="news-title" style="font-size: 14px;">关于开展2024年度省级电子商务示范企业申报工作的通知</a>
+                            <span class="news-date">03-12</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title" style="font-size: 14px;">关于做好2024年春节节日期间市场保供稳价工作的通知</a>
+                            <span class="news-date">02-05</span>
+                        </div>
+                        <div class="news-item">
+                            <a href="#" class="news-title" style="font-size: 14px;">关于调整黑龙江省商务厅政务公开领导小组成员的通知</a>
+                            <span class="news-date">01-10</span>
+                        </div>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>黑龙江省商务厅</h3>
+                    <p>黑龙江省商务厅是主管全省国内外贸易、国际经济合作、招商引资和对外援助工作的省政府组成部门。</p>
+                    <p>地址：哈尔滨市南岗区中山路243号</p>
+                    <p>邮编：150001</p>
+                </div>
+                <div class="footer-links">
+                    <h4>政务公开</h4>
+                    <ul>
+                        <li><a href="#">机构职能</a></li>
+                        <li><a href="#">领导介绍</a></li>
+                        <li><a href="#">机构设置</a></li>
+                        <li><a href="#">人事信息</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>政务服务</h4>
+                    <ul>
+                        <li><a href="#">行政审批</a></li>
+                        <li><a href="#">网上办事大厅</a></li>
+                        <li><a href="#">政策查询</a></li>
+                        <li><a href="#">数据开放</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>互动交流</h4>
+                    <ul>
+                        <li><a href="#">网上信访</a></li>
+                        <li><a href="#">领导信箱</a></li>
+                        <li><a href="#">意见征集</a></li>
+                        <li><a href="#">公众留言</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 黑龙江省商务厅 版权所有 | 黑ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to toggle mobile menu
+        function toggleMenu() {
+            const nav = document.getElementById('mainNav');
+            nav.classList.toggle('active');
+        }
+
+        // Add active state to nav links on click
+        const navLinks = document.querySelectorAll('.header-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+                // Close mobile menu if open
+                if (window.innerWidth <= 768) {
+                    navLinks.forEach(l => l.classList.remove('active'));
+                }
+            });
+        });
+    </script>
+</body>
+  </html>
