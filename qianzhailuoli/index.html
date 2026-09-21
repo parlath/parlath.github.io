@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>欠债萝莉-原创二次元视觉小说与故事集</title>
+    <meta name="description" content="欠债萝莉是一个专注于原创二次元风格的视觉小说与插画故事平台，收录了大量关于现代都市、奇幻冒险及情感纠葛的精彩章节，提供沉浸式的阅读体验。">
+    <meta name="keywords" content="欠债萝莉,二次元,视觉小说,原创漫画,故事集,日系风格">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #ff7eb3;
+            --secondary-color: #ff758c;
+            --accent-color: #7afcff;
+            --bg-color: #fdf2f8;
+            --card-bg: #ffffff;
+            --text-main: #2d3436;
+            --text-sub: #636e72;
+            --border-radius: 12px;
+            --container-width: 1200px;
+            --shadow: 0 4px 20px rgba(255, 117, 140, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 0;
+        }
+
+        .nav-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--secondary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--secondary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 117, 140, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 117, 140, 0.4);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            padding: 80px 0;
+            overflow: hidden;
+            background: radial-gradient(circle at 80% 20%, rgba(255, 126, 179, 0.15), transparent 40%),
+                        radial-gradient(circle at 20% 80%, rgba(122, 252, 255, 0.15), transparent 40%);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .hero-text h1 span {
+            color: var(--secondary-color);
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            border: 1px solid rgba(255, 117, 140, 0.2);
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transform: perspective(1000px) rotateY(-5deg) rotateX(2deg);
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover img {
+            transform: perspective(1000px) rotateY(0) rotateX(0);
+        }
+
+        /* 漫画卡片网格 */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-sub);
+        }
+
+        .manga-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .manga-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .manga-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow);
+        }
+
+        .card-cover {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .card-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .manga-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        .play-btn {
+            background: white;
+            color: var(--secondary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .card-info {
+            padding: 15px;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+        }
+
+        .card-rating {
+            color: #f1c40f;
+        }
+
+        /* 最新章节 */
+        .latest-chapters {
+            background: white;
+            padding: 60px 0;
+            border-radius: 20px;
+            margin-bottom: 60px;
+        }
+
+        .chapter-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .chapter-item {
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+            transition: background 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .chapter-item:hover {
+            background: #fff0f5;
+            border-left-color: var(--secondary-color);
+        }
+
+        .chapter-num {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-right: 20px;
+            min-width: 40px;
+        }
+
+        .chapter-title {
+            flex: 1;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        .chapter-date {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .chapter-tag {
+            font-size: 0.8rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+            background: #eee;
+            margin-left: 10px;
+        }
+
+        .tag-hot { background: #ffeaea; color: #d63031; }
+        .tag-new { background: #e3f2fd; color: #0984e3; }
+
+        /* 互动社区/留言 */
+        .community-section {
+            padding: 60px 0;
+        }
+
+        .community-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .post-input {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .post-input textarea {
+            width: 100%;
+            height: 120px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 1rem;
+            resize: none;
+            margin-bottom: 15px;
+            font-family: inherit;
+        }
+
+        .post-input textarea:focus {
+            outline: none;
+            border-color: var(--secondary-color);
+        }
+
+        .hot-topics {
+            background: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .hot-topics h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 10px;
+        }
+
+        .topic-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .topic-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .topic-rank {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #eee;
+            margin-right: 15px;
+            min-width: 30px;
+        }
+
+        .topic-item:nth-child(1) .topic-rank { color: #ff4757; }
+        .topic-item:nth-child(2) .topic-rank { color: #ffa502; }
+        .topic-item:nth-child(3) .topic-rank { color: #2ed573; }
+
+        .topic-name {
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        /* 页脚 */
+        footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #636e72;
+            font-size: 0.9rem;
+            color: #636e72;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text p {
+                margin: 0 auto 30px;
+            }
+
+            .hero-tags {
+                justify-content: center;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .community-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-inner">
+            <a href="#" class="logo">
+                <span>欠债萝莉</span> LoliDebt
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">全部作品</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">排行榜</a></li>
+                    <li><a href="#">作者专区</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="btn btn-outline">登录</button>
+                <button class="btn btn-primary">开始阅读</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h1>在绝望中寻找<span>微光</span>的青春物语</h1>
+                    <div class="hero-tags">
+                        <span class="tag">都市情感</span>
+                        <span class="tag">治愈系</span>
+                        <span class="tag">日系画风</span>
+                    </div>
+                    <p>欢迎来到“欠债萝莉”的世界。这里汇聚了无数关于成长、债务与梦想的原创视觉小说与漫画故事。体验细腻的情感描绘，感受二次元世界的独特魅力。</p>
+                    <div style="display: flex; gap: 15px; justify-content: flex-start;">
+                        <button class="btn btn-primary">立即阅读</button>
+                        <button class="btn btn-outline">查看榜单</button>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- 使用 Picsum 生成具有少女感和柔和色调的随机图片 -->
+                    <img src="https://picsum.photos/seed/animegirl/600/400" alt="欠债萝莉角色插画">
+                </div>
+            </div>
+        </section>
+
+        <!-- 热门作品 -->
+        <section class="container">
+            <div class="section-title">
+                <h2>热门连载作品</h2>
+                <p>精选高分原创故事，每周更新</p>
+            </div>
+            <div class="manga-grid">
+                <!-- Card 1 -->
+                <article class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/story1/300/400" alt="作品封面">
+                        <div class="card-overlay">
+                            <a href="#" class="play-btn">▶</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">深渊之上的便利店</h3>
+                        <div class="card-meta">
+                            <span class="card-rating">★ 9.2</span>
+                            <span>2.3万人追读</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/story2/300/400" alt="作品封面">
+                        <div class="card-overlay">
+                            <a href="#" class="play-btn">▶</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">借贷少女的恋爱方程式</h3>
+                        <div class="card-meta">
+                            <span class="card-rating">★ 8.8</span>
+                            <span>1.8万人追读</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/story3/300/400" alt="作品封面">
+                        <div class="card-overlay">
+                            <a href="#" class="play-btn">▶</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">周末的债务偿还计划</h3>
+                        <div class="card-meta">
+                            <span class="card-rating">★ 9.5</span>
+                            <span>3.1万人追读</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="manga-card">
+                    <div class="card-cover">
+                        <img src="https://picsum.photos/seed/story4/300/400" alt="作品封面">
+                        <div class="card-overlay">
+                            <a href="#" class="play-btn">▶</a>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <h3 class="card-title">谎言与纸币的重量</h3>
+                        <div class="card-meta">
+                            <span class="card-rating">★ 8.5</span>
+                            <span>1.2万人追读</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 最新章节 -->
+        <section class="container">
+            <div class="section-title">
+                <h2>最新章节更新</h2>
+                <p>紧跟剧情发展，不错过任何细节</p>
+            </div>
+            <div class="latest-chapters">
+                <div class="chapter-list">
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-num">CH. 42</span>
+                        <div class="chapter-title">最后的晚餐</div>
+                        <span class="chapter-tag tag-hot">热门</span>
+                        <span class="chapter-date">10分钟前</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-num">CH. 41</span>
+                        <div class="chapter-title">无法兑现的支票</div>
+                        <span class="chapter-date">2小时前</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-num">CH. 40</span>
+                        <div class="chapter-title">雨夜的咖啡馆</div>
+                        <span class="chapter-tag tag-new">连载中</span>
+                        <span class="chapter-date">5小时前</span>
+                    </a>
+                    <a href="#" class="chapter-item">
+                        <span class="chapter-num">CH. 39</span>
+                        <div class="chapter-title">清算时刻</div>
+                        <span class="chapter-date">昨天</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 社区互动 -->
+        <section class="container community-section">
+            <div class="section-title">
+                <h2>读者社区</h2>
+                <p>分享你的看法，与同好交流</p>
+            </div>
+            <div class="community-layout">
+                <div class="post-input">
+                    <textarea placeholder="分享你对“欠债萝莉”系列的看法，或者推荐你喜欢的作品..."></textarea>
+                    <div style="text-align: right;">
+                        <button class="btn btn-primary">发布评论</button>
+                    </div>
+                </div>
+                <aside class="hot-topics">
+                    <h3>热门话题</h3>
+                    <div class="topic-item">
+                        <span class="topic-rank">1</span>
+                        <span class="topic-name">吐槽最新剧情走向</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-rank">2</span>
+                        <span class="topic-name">求作者更新时间表</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-rank">3</span>
+                        <span class="topic-name">推荐类似风格的漫画</span>
+                    </div>
+                    <div class="topic-item">
+                        <span class="topic-rank">4</span>
+                        <span class="topic-name">角色分析：女主角性格</span>
+                    </div>
+                </aside>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; color: #b2bec3; line-height: 1.8;">
+                        “欠债萝莉”致力于打造最纯粹的二次元阅读体验，收录大量原创视觉小说与插画故事，为读者提供沉浸式的阅读环境。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#">全部作品</a></li>
+                        <li><a href="#">分类浏览</a></li>
+                        <li><a href="#">排行榜单</a></li>
+                        <li><a href="#">投稿指南</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">常见问题</a></li>
+                        <li><a href="#">联系客服</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">用户协议</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">Bilibili</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 欠债萝莉. All Rights Reserved. 本站内容仅供学习交流使用.
+            </div>
+        </div>
+    </footer>
+
+</body>
+  </html>
