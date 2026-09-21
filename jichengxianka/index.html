@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>集成显卡能玩的游戏-低配置电脑游戏推荐与优化指南</title>
+    <meta name="description" content="本站提供集成显卡能玩的游戏列表，包含热门低配置3A大作、独立小游戏及优化技巧。专为核显用户、轻薄本玩家及办公电脑升级需求设计，助你流畅体验经典与新作。">
+    <meta name="keywords" content="集成显卡能玩的游戏,核显游戏推荐,低配置电脑游戏,笔记本玩游戏,核显优化">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --accent-green: #10b981;
+            --accent-orange: #f59e0b;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo svg {
+            width: 28px;
+            height: 28px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        .search-box {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 16px;
+            border-radius: 8px;
+            border: 1px solid #475569;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            font-size: 1rem;
+        }
+
+        .search-box input::placeholder {
+            color: #94a3b8;
+        }
+
+        .search-box button {
+            padding: 0 24px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .search-box button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 40px;
+        }
+
+        /* Sidebar */
+        aside {
+            position: sticky;
+            top: 84px;
+            height: fit-content;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .category-card h3 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .filter-group li {
+            margin-bottom: 8px;
+        }
+
+        .filter-group a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .filter-group a:hover {
+            background-color: #f1f5f9;
+            color: var(--primary-color);
+        }
+
+        .filter-group a span.count {
+            background: #e2e8f0;
+            color: #64748b;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+
+        .filter-group a.active span.count {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* Content Area */
+        .content-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+
+        .content-header h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .sort-select {
+            padding: 8px 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-main);
+        }
+
+        /* Game Grid */
+        .game-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .game-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 140px;
+            background-color: #cbd5e1;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .badge.hd { background-color: var(--accent-green); }
+        .badge.nd { background-color: var(--accent-orange); }
+        .badge.old { background-color: #64748b; }
+
+        .card-body {
+            padding: 16px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .card-meta {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+            flex: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            background: white;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline:hover {
+            background-color: #f8fafc;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            margin-top: 60px;
+            background-color: #eff6ff;
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid #dbeafe;
+        }
+
+        .tips-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .tip-item {
+            background: white;
+            padding: 24px;
+            border-radius: 8px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .tip-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tip-item p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 60px 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            aside {
+                display: none; /* Simplified for mobile */
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .header-inner {
+                padding: 0 16px;
+            }
+
+            nav {
+                display: none; /* Simplified mobile nav */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            <span>核显游戏库</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">全部游戏</a></li>
+                <li><a href="#">动作射击</a></li>
+                <li><a href="#">RPG角色扮演</a></li>
+                <li><a href="#">独立游戏</a></li>
+                <li><a href="#">策略经营</a></li>
+            </ul>
+        </nav>
+        <div style="font-size: 0.9rem; color: var(--text-secondary);">核显用户首选</div>
+    </div>
+</header>
+
+<section class="hero">
+    <h1>集成显卡能玩的游戏</h1>
+    <p>专为核显用户打造的游戏推荐库。无论是办公笔记本还是旧台式机，都能在这里找到流畅运行的佳作。</p>
+    <div class="search-box">
+        <input type="text" placeholder="搜索游戏名称或类型...">
+        <button>搜索</button>
+    </div>
+</section>
+
+<main class="container">
+    <aside>
+        <div class="category-card">
+            <h3>画质标签</h3>
+            <ul class="filter-group">
+                <li><a href="#" class="active"><span>高画质推荐</span> <span class="count">12</span></a></li>
+                <li><a href="#"><span>中画质流畅</span> <span class="count">45</span></a></li>
+                <li><a href="#"><span>复古怀旧</span> <span class="count">28</span></a></li>
+                <li><a href="#"><span>网页游戏</span> <span class="count">15</span></a></li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <h3>系统需求</h3>
+            <ul class="filter-group">
+                <li><a href="#"><span>Windows 10/11</span> <span class="count">32</span></a></li>
+                <li><a href="#"><span>Windows 7/8</span> <span class="count">18</span></a></li>
+                <li><a href="#"><span>Linux 兼容</span> <span class="count">8</span></a></li>
+            </ul>
+        </div>
+
+        <div class="category-card">
+            <h3>热门标签</h3>
+            <ul class="filter-group">
+                <li><a href="#"><span>免费游戏</span> <span class="count">15</span></a></li>
+                <li><a href="#"><span>单机剧情</span> <span class="count">20</span></a></li>
+                <li><a href="#"><span>多人联机</span> <span class="count">10</span></a></li>
+            </ul>
+        </div>
+    </aside>
+
+    <section class="main-content">
+        <div class="content-header">
+            <h2>热门推荐</h2>
+            <select class="sort-select">
+                <option>按热度排序</option>
+                <option>按发布时间</option>
+                <option>按推荐画质</option>
+            </select>
+        </div>
+
+        <div class="game-grid">
+            <!-- Game Card 1 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/genshin/300/200" alt="原神游戏截图">
+                    <span class="badge hd">高画质</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">原神</h3>
+                    <div class="card-meta">
+                        <span>开放世界</span> • <span>动作RPG</span>
+                    </div>
+                    <p class="card-desc">虽然是3D大作，但优化极佳。Intel HD 620 核显即可在1080p中画质下流畅运行，体验提瓦特大陆的冒险。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 2 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/hades/300/200" alt="哈迪斯游戏截图">
+                    <span class="badge nd">中画质</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">哈迪斯</h3>
+                    <div class="card-meta">
+                        <span>动作</span> • <span>肉鸽</span>
+                    </div>
+                    <p class="card-desc">虽然画面精美，但对显卡要求不高。大多数现代核显都能轻松跑满60帧，节奏感极强的动作体验。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 3 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/stardew/300/200" alt="星露谷物语游戏截图">
+                    <span class="badge old">复古</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">星露谷物语</h3>
+                    <div class="card-meta">
+                        <span>模拟经营</span> • <span>休闲</span>
+                    </div>
+                    <p class="card-desc">像素画风，极其省资源。任何一台能上网的电脑都能完美运行，是核显用户的最佳休闲伴侣。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 4 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/league/300/200" alt="英雄联盟游戏截图">
+                    <span class="badge hd">高画质</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">英雄联盟</h3>
+                    <div class="card-meta">
+                        <span>MOBA</span> • <span>竞技</span>
+                    </div>
+                    <p class="card-desc">国民级网游，对硬件要求极低。不仅核显能玩，甚至很多集显笔记本都能在1080p高特效下流畅对战。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 5 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/dota2/300/200" alt="DOTA2游戏截图">
+                    <span class="badge nd">中画质</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">DOTA 2</h3>
+                    <div class="card-meta">
+                        <span>MOBA</span> • <span>策略</span>
+                    </div>
+                    <p class="card-desc">Valve出品，优化出色。在集成显卡上，建议开启中等画质以获得更稳定的帧率，避免团战掉帧。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 6 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/undertale/300/200" alt="传说之下游戏截图">
+                    <span class="badge old">复古</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">传说之下</h3>
+                    <div class="card-meta">
+                        <span>RPG</span> • <span>剧情</span>
+                    </div>
+                    <p class="card-desc">经典的2D RPG游戏，体积小，性能消耗几乎为零，随时随地都能开启一段感动人心的旅程。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 7 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/terraria/300/200" alt="泰拉瑞亚游戏截图">
+                    <span class="badge old">复古</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">泰拉瑞亚</h3>
+                    <div class="card-meta">
+                        <span>沙盒</span> • <span>动作</span>
+                    </div>
+                    <p class="card-desc">2D版我的世界，拥有庞大的世界观。核显用户可以在全屏模式下获得极佳的沉浸感。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Game Card 8 -->
+            <article class="game-card">
+                <div class="card-image">
+                    <img src="https://picsum.photos/seed/valorant/300/200" alt="无畏契约游戏截图">
+                    <span class="badge nd">中画质</span>
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">无畏契约</h3>
+                    <div class="card-meta">
+                        <span>FPS</span> • <span>战术</span>
+                    </div>
+                    <p class="card-desc">拳头游戏开发，FPS游戏优化标杆。核显在1080p低画质下也能提供不错的竞技体验。</p>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary">下载/试玩</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <div class="tips-section">
+            <h3>核显玩家优化指南</h3>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <h4>🎮 更新显卡驱动</h4>
+                    <p>集成显卡的性能很大程度上依赖驱动优化。请定期访问Intel官网下载最新的显卡驱动，这能显著提升游戏帧数。</p>
+                </div>
+                <div class="tip-item">
+                    <h4>⚙️ 调整电源管理</h4>
+                    <p>在控制面板中将电源计划设置为“高性能”，并确保显卡处于高性能模式，避免系统自动降频导致卡顿。</p>
+                </div>
+                <div class="tip-item">
+                    <h4>🧹 关闭后台程序</h4>
+                    <p>运行游戏前，关闭浏览器、杀毒软件和云同步等后台进程，释放内存和CPU资源给游戏使用。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <p style="font-size: 0.9rem; line-height: 1.6;">核显游戏库致力于为所有配置较低的电脑用户提供优质的游戏资源和优化建议，让每一台电脑都能带来娱乐体验。</p>
+        </div>
+        <div class="footer-col">
+            <h4>快速导航</h4>
+            <ul>
+                <li><a href="#">游戏分类</a></li>
+                <li><a href="#">推荐列表</a></li>
+                <li><a href="#">下载帮助</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>常见问题</h4>
+            <ul>
+                <li><a href="#">核显可以玩3A大作吗？</a></li>
+                <li><a href="#">如何提高游戏帧数？</a></li>
+                <li><a href="#">支持哪些操作系统？</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2023 核显游戏库. All Rights Reserved. 本站内容仅供学习交流使用。</p>
+    </div>
+</footer>
+
+</body>
+  </html>
