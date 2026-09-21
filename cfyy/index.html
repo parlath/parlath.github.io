@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cfyy频道设计图 - 精品直播频道视觉规范与UI布局方案</title>
+    <meta name="description" content="本页面提供cfyy频道设计图的详细展示与解析，包含直播界面UI布局、色彩规范、图标样式及响应式适配方案，适用于主播装修与频道管理参考。">
+    <meta name="keywords" content="cfyy频道设计图,直播UI设计,频道装修,直播间布局,视觉规范">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #6C5CE7;
+            --secondary-color: #A29BFE;
+            --accent-color: #00CEC9;
+            --dark-bg: #2D3436;
+            --light-bg: #F5F6FA;
+            --card-bg: #FFFFFF;
+            --text-main: #2D3436;
+            --text-sub: #636E72;
+            --border-radius: 12px;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 0.95rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: #5649c0;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid #E0E0E0;
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background-color: var(--accent-color);
+            border-radius: 2px;
+        }
+
+        /* Design Showcase Grid */
+        .design-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .design-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
+            border: 1px solid #eee;
+        }
+
+        .design-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .design-preview {
+            height: 240px;
+            background-color: #f0f0f0;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .design-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .design-label {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            backdrop-filter: blur(4px);
+        }
+
+        .design-info {
+            padding: 1.5rem;
+        }
+
+        .design-info h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+
+        .design-info p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background-color: #f1f2f6;
+            color: var(--text-sub);
+        }
+
+        /* Color Palette Section */
+        .palette-section {
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .palette-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .color-item {
+            text-align: center;
+        }
+
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            box-shadow: inset 0 0 0 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .color-swatch:hover {
+            transform: scale(1.1);
+        }
+
+        .color-name {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .color-hex {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            font-family: monospace;
+        }
+
+        /* Specs Table */
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+        }
+
+        .specs-table th, .specs-table td {
+            padding: 1rem 1.5rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        .specs-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: var(--text-main);
+            width: 30%;
+        }
+
+        .specs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: #b2bec3;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1.2rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a {
+            color: #b2bec3;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                cfyy频道设计图
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#overview" class="active">概览</a></li>
+                    <li><a href="#showcase">设计展示</a></li>
+                    <li><a href="#palette">色彩规范</a></li>
+                    <li><a href="#specs">技术规格</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>打造沉浸式直播体验</h1>
+                <p>本页面提供cfyy频道的全套UI设计方案，涵盖主页布局、直播间界面及移动端适配，旨在提升用户留存与互动效率。</p>
+                <div style="margin-top: 2rem;">
+                    <a href="#showcase" class="btn btn-primary" style="background-color: white; color: var(--primary-color);">查看设计图</a>
+                    <a href="#specs" class="btn btn-outline" style="border-color: white; color: white; margin-left: 1rem;">技术规范</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="showcase" class="container">
+            <div class="section-header">
+                <h2 class="section-title">核心界面设计图</h2>
+                <p style="color: var(--text-sub);">基于用户体验研究的视觉迭代方案</p>
+            </div>
+
+            <div class="design-grid">
+                <!-- Card 1 -->
+                <article class="design-card">
+                    <div class="design-preview">
+                        <span class="design-label">UI Mockup</span>
+                        <!-- Placeholder for Main Interface -->
+                        <img src="https://picsum.photos/seed/cfyy1/600/400" alt="cfyy频道主页设计图">
+                    </div>
+                    <div class="design-info">
+                        <h3>频道主页 Dashboard</h3>
+                        <p>采用卡片式瀑布流布局，突出直播封面与实时热度。优化了导航栏与搜索区域的层级关系，确保用户在3秒内找到目标内容。</p>
+                        <div class="tags">
+                            <span class="tag">卡片式</span>
+                            <span class="tag">响应式</span>
+                            <span class="tag">高对比度</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="design-card">
+                    <div class="design-preview">
+                        <span class="design-label">UI Mockup</span>
+                        <!-- Placeholder for Live Interface -->
+                        <img src="https://picsum.photos/seed/cfyy2/600/400" alt="直播间界面设计图">
+                    </div>
+                    <div class="design-info">
+                        <h3>直播间沉浸视图</h3>
+                        <p>去除了非必要干扰元素，聚焦视频主体。重点优化了弹幕输入框与互动按钮的位置，符合拇指操作习惯，提升互动转化率。</p>
+                        <div class="tags">
+                            <span class="tag">沉浸式</span>
+                            <span class="tag">拇指交互</span>
+                            <span class="tag">暗色模式</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="design-card">
+                    <div class="design-preview">
+                        <span class="design-label">UI Mockup</span>
+                        <!-- Placeholder for Mobile View -->
+                        <img src="https://picsum.photos/seed/cfyy3/600/400" alt="移动端适配设计图">
+                    </div>
+                    <div class="design-info">
+                        <h3>移动端适配方案</h3>
+                        <p>针对竖屏操作优化的布局，底部固定导航栏，侧滑菜单设计。确保在手机浏览器中加载速度与视觉还原度达到最佳平衡。</p>
+                        <div class="tags">
+                            <span class="tag">Flex布局</span>
+                            <span class="tag">移动优先</span>
+                            <span class="tag">触控优化</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="palette" class="container">
+            <div class="section-header">
+                <h2 class="section-title">视觉色彩规范</h2>
+            </div>
+            
+            <div class="palette-section">
+                <div class="palette-grid">
+                    <div class="color-item">
+                        <div class="color-swatch" style="background-color: #6C5CE7;"></div>
+                        <div class="color-name">品牌主色</div>
+                        <div class="color-hex">#6C5CE7</div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background-color: #00CEC9;"></div>
+                        <div class="color-name">强调色</div>
+                        <div class="color-hex">#00CEC9</div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background-color: #2D3436;"></div>
+                        <div class="color-name">深色背景</div>
+                        <div class="color-hex">#2D3436</div>
+                    </div>
+                    <div class="color-item">
+                        <div class="color-swatch" style="background-color: #F5F6FA;"></div>
+                        <div class="color-name">浅色背景</div>
+                        <div class="color-hex">#F5F6FA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="specs" class="container">
+            <div class="section-header">
+                <h2 class="section-title">技术规格与实现</h2>
+            </div>
+
+            <table class="specs-table">
+                <tbody>
+                    <tr>
+                        <th>分辨率</th>
+                        <td>1920 x 1080 (桌面端) / 375 x 812 (移动端)</td>
+                    </tr>
+                    <tr>
+                        <th>字体规范</th>
+                        <td>标题使用 -apple-system, 正文使用 Noto Sans SC，字重标准 400/600/800</td>
+                    </tr>
+                    <tr>
+                        <th>圆角半径</th>
+                        <td>UI组件统一使用 12px 圆角，卡片使用 8px 圆角</td>
+                    </tr>
+                    <tr>
+                        <th>间距系统</th>
+                        <td>基础间距单位为 8px (0.5rem)，采用 4px 的倍数进行布局</td>
+                    </tr>
+                    <tr>
+                        <th>交互反馈</th>
+                        <td>所有可点击元素具备 0.3s 的过渡动画，点击态透明度降低至 0.8</td>
+                    </tr>
+                    <tr>
+                        <th>图标风格</th>
+                        <td>线性风格，线宽 2px，无描边，单色 (主色/深色/白色)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="container" style="margin-bottom: 2rem;">
+            <div style="background: #eef2ff; border: 1px solid #c7d2fe; padding: 2rem; border-radius: 12px; text-align: center;">
+                <h3 style="color: var(--primary-color); margin-bottom: 1rem;">获取完整源文件</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--text-sub);">本设计图包含 Figma 源文件及 CSS 样式库，可直接用于项目开发。</p>
+                <button class="btn btn-primary">下载资源包</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于cfyy频道设计图</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.6;">专注于提供高质量的直播平台UI/UX设计方案，助力内容创作者提升品牌形象。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>设计资源</h4>
+                    <ul>
+                        <li><a href="#">UI组件库</a></li>
+                        <li><a href="#">图标资源</a></li>
+                        <li><a href="#">切图规范</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">使用指南</a></li>
+                        <li><a href="#">版权声明</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 cfyy频道设计图. All Rights Reserved. 本页面为设计展示示例。
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
